@@ -17,20 +17,26 @@ kill |
 fight |
 hit |
 punch |
-stab { printf("%s AGGRESSION\n", yytext); }
+stab { yylval.sval = strdup(yytext); return AGGRESSION; }
 
 eat |
 consume |
 digest |
 chew |
-chomp { printf("%s CONSUMPTION\n", yytext); }
+chomp { yylval.sval = strdup(yytext); return CONSUMPTION; }
 
 Bush_administration |
 voldemort |
-death { printf("%s HAZARD\n", yytext); }
+death { yylval.sval = strdup(yytext); return HAZARD; }
 
 unicorndog |
-delectable_morsel { printf("%s FOOD\n", yytext); }
+delectable_morsel { yylval.sval = strdup(yytext); return FOOD; }
+
+quit |
+q |
+exit |
+e |
+leave {yylval.sval = strdup(yytext); return EXIT; }
 
 N |
 n |
@@ -47,9 +53,10 @@ se |
 SW |
 sw |
 NW |
-nw { printf("%s DIRECTION\n", yytext); }
+nw { yylval.sval = strdup(yytext); return DIRECTION; }
 
-.|\n        { printf("Other: %s \n", yytext); /* normal default anyway */ }
+.		  return yytext[0];
+\n        return 0;
 
 %%
 /*---------------------------------------------------------------------------*/

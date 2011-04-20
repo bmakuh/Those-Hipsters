@@ -39,7 +39,12 @@
       know about them.  */
    enum yytokentype {
      MOTION = 258,
-     DIRECTION = 259
+     DIRECTION = 259,
+     AGGRESSION = 260,
+     HAZARD = 261,
+     CONSUMPTION = 262,
+     FOOD = 263,
+     EXIT = 264
    };
 #endif
 
@@ -62,7 +67,7 @@ yylval
 
 
 /* Line 1685 of yacc.c  */
-#line 66 "zork0.tab.h"
+#line 71 "zork0.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
