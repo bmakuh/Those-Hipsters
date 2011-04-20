@@ -35,7 +35,6 @@ delectable_morsel { yylval.sval = strdup(yytext); return FOOD; }
 quit |
 q |
 exit |
-e |
 leave {yylval.sval = strdup(yytext); return EXIT; }
 
 N |

@@ -359,8 +359,8 @@ static void yy_fatal_error (yyconst char msg[]  );
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
 
-#define YY_NUM_RULES 44
-#define YY_END_OF_BUFFER 45
+#define YY_NUM_RULES 43
+#define YY_END_OF_BUFFER 44
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -370,18 +370,18 @@ struct yy_trans_info
 	};
 static yyconst flex_int16_t yy_accept[147] =
     {   0,
-        0,    0,   45,   42,    1,   43,   42,   28,   26,   30,
-       32,   42,   42,   24,   42,   42,   42,   42,   42,   42,
-       27,   42,   22,   42,   31,   42,   42,   33,    1,    0,
-       34,   40,   36,   38,    0,    0,    0,    0,    0,    0,
-        0,    2,    0,    0,    0,    0,   35,   41,    0,    0,
-        0,   37,    0,   39,    0,    0,    0,    0,    0,    0,
+        0,    0,   44,   41,    1,   42,   41,   27,   25,   29,
+       31,   41,   41,   28,   41,   41,   41,   41,   41,   41,
+       26,   41,   22,   41,   30,   41,   41,   32,    1,    0,
+       33,   39,   35,   37,    0,    0,    0,    0,    0,    0,
+        0,    2,    0,    0,    0,    0,   34,   40,    0,    0,
+        0,   36,    0,   38,    0,    0,    0,    0,    0,    0,
         0,    0,    0,    0,   11,    0,    0,    8,    0,    0,
         0,    0,    0,    5,    0,    0,    0,    0,    0,   14,
         0,    0,    0,    0,    0,   23,    0,    6,    0,    3,
         0,   21,   10,    0,    0,    4,    0,   15,    0,   18,
 
-        0,    0,    7,   25,    9,    0,    0,    0,    0,    0,
+        0,    0,    7,   24,    9,    0,    0,    0,    0,    0,
        13,    0,    0,    0,   12,    0,    0,    0,    0,    0,
         0,    0,    0,    0,    0,   17,    0,    0,   19,    0,
         0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
@@ -838,10 +838,10 @@ case 21:
 case 22:
 case 23:
 case 24:
-case 25:
 YY_RULE_SETUP
 {yylval.sval = strdup(yytext); return EXIT; }
 	YY_BREAK
+case 25:
 case 26:
 case 27:
 case 28:
@@ -857,20 +857,19 @@ case 37:
 case 38:
 case 39:
 case 40:
-case 41:
 YY_RULE_SETUP
 { yylval.sval = strdup(yytext); return DIRECTION; }
 	YY_BREAK
-case 42:
+case 41:
 YY_RULE_SETUP
 return yytext[0];
 	YY_BREAK
-case 43:
-/* rule 43 can match eol */
+case 42:
+/* rule 42 can match eol */
 YY_RULE_SETUP
 return 0;
 	YY_BREAK
-case 44:
+case 43:
 YY_RULE_SETUP
 ECHO;
 	YY_BREAK

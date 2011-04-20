@@ -16,11 +16,16 @@
 %type  <sval>moveType
 %type  <sval>fightType
 %type  <sval>eatType
+%{
+void quit();
+%}
+
 %%
-game: actionList EXIT {printf("Thanks for playing zork!\n"); $2 }
+game: actionList EXIT { quit(); }
+	| EXIT { quit(); }
 ;
 
-actionList: actionList action 
+actionList: action actionList
 	| action
 ;
 
@@ -29,11 +34,17 @@ action: moveType {$$ = $1;}
 	| eatType {$$ = $1;}
 ;
 
-moveType: MOTION DIRECTION {printf("you are %sing %s\n", $1, $2); }
+moveType: MOTION DIRECTION {printf("you %s %s\n", $1, $2); }
 ;
 
-fightType: AGGRESSION HAZARD {printf("you are %sing %s\n", $1, $2); }
+fightType: AGGRESSION HAZARD {printf("you %s %s to death!\n", $1, $2); }
 ;
 
-eatType: CONSUMPTION FOOD {printf("you are %sing a %s", $1, $2); }
+eatType: CONSUMPTION FOOD {printf("you are %sing a %s\n", $1, $2); }
 ;
+%%
+void quit()
+{
+	printf("Thanks for playing Zork!\n"); 
+	exit(0);
+}
