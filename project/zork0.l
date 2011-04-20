@@ -2,7 +2,7 @@
 /* 
  * bmakuh & cmckenna
  */
-
+#include "zork0.tab.h"
 %}
 %%
 
@@ -11,7 +11,7 @@
 go |
 move |
 walk |
-run { printf("%s MOVEMENT\n", yytext); }
+run { yylval.sval = strdup(yytext); return MOTION; }
 
 kill |
 fight |
@@ -33,19 +33,34 @@ unicorndog |
 delectable_morsel { printf("%s FOOD\n", yytext); }
 
 N |
+n |
 E |
+e |
 S |
+s |
 W |
+w |
 NE |
+ne |
 SE |
+se |
 SW |
-NW { printf("%s DIRECTION\n", yytext); }
+sw |
+NW |
+nw { printf("%s DIRECTION\n", yytext); }
 
 .|\n        { printf("Other: %s \n", yytext); /* normal default anyway */ }
 
 %%
+/*---------------------------------------------------------------------------*/
+/* 5. Other C code that we need.                                           */
+ 
+yyerror(char *errmsg)
+{
+    fprintf(stderr, "%s\n", errmsg);
+}
 
 main()
 {
-	yylex();
+	yyparse();
 }
