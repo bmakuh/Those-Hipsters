@@ -19,12 +19,7 @@
 %{
 void quit();
 void initGame();
-struct room_entrance();
-struct room_guantanamoBay();
-struct room_woodlandCreatures();
-struct room_reallyConfusing();
-struct room_unicorndogStables();
-struct room_theShire();
+struct aRoom;
 %}
 
 %%
@@ -56,26 +51,6 @@ void quit()
 	exit(0);
 }
 
-struct room_entrance() {
-
-}
-
-struct room_guantanamoBay() {
-
-}
-
-struct room_woodlandCreatures() {
-
-}
-
-struct room_reallyConfusing() {
-
-}
-
-struct room_unicorndogStables() {
-
-}
-
-struct room_theShire() {
+struct aRoom {
 
 }
