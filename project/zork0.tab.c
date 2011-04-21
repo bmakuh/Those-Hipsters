@@ -110,12 +110,12 @@
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union 
 /* Line 214 of yacc.c  */
-#line 1 "zork0.y"
+#line 1 "./zork0.y"
 yylval
 {
 
 /* Line 214 of yacc.c  */
-#line 1 "zork0.y"
+#line 1 "./zork0.y"
 
 	float fval;
 	int ival;
@@ -135,7 +135,7 @@ yylval
 /* Copy the second part of user declarations.  */
 
 /* Line 264 of yacc.c  */
-#line 19 "zork0.y"
+#line 19 "./zork0.y"
 
 void quit();
 
@@ -1340,56 +1340,56 @@ yyreduce:
         case 2:
 
 /* Line 1464 of yacc.c  */
-#line 24 "zork0.y"
+#line 24 "./zork0.y"
     { quit(); ;}
     break;
 
   case 3:
 
 /* Line 1464 of yacc.c  */
-#line 25 "zork0.y"
+#line 25 "./zork0.y"
     { quit(); ;}
     break;
 
   case 6:
 
 /* Line 1464 of yacc.c  */
-#line 32 "zork0.y"
+#line 32 "./zork0.y"
     {(yyval.sval) = (yyvsp[(1) - (1)].sval);;}
     break;
 
   case 7:
 
 /* Line 1464 of yacc.c  */
-#line 33 "zork0.y"
+#line 33 "./zork0.y"
     {(yyval.sval) = (yyvsp[(1) - (1)].sval);;}
     break;
 
   case 8:
 
 /* Line 1464 of yacc.c  */
-#line 34 "zork0.y"
+#line 34 "./zork0.y"
     {(yyval.sval) = (yyvsp[(1) - (1)].sval);;}
     break;
 
   case 9:
 
 /* Line 1464 of yacc.c  */
-#line 37 "zork0.y"
+#line 37 "./zork0.y"
     {printf("you %s %s\n", (yyvsp[(1) - (2)].sval), (yyvsp[(2) - (2)].sval)); ;}
     break;
 
   case 10:
 
 /* Line 1464 of yacc.c  */
-#line 40 "zork0.y"
+#line 40 "./zork0.y"
     {printf("you %s %s to death!\n", (yyvsp[(1) - (2)].sval), (yyvsp[(2) - (2)].sval)); ;}
     break;
 
   case 11:
 
 /* Line 1464 of yacc.c  */
-#line 43 "zork0.y"
+#line 43 "./zork0.y"
     {printf("you are %sing a %s\n", (yyvsp[(1) - (2)].sval), (yyvsp[(2) - (2)].sval)); ;}
     break;
 
@@ -1608,7 +1608,7 @@ yyreturn:
 
 
 /* Line 1684 of yacc.c  */
-#line 45 "zork0.y"
+#line 45 "./zork0.y"
 
 void quit()
 {

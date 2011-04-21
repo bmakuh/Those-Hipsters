@@ -25,7 +25,7 @@ game: actionList EXIT { quit(); }
 	| EXIT { quit(); }
 ;
 
-actionList: action actionList
+actionList: actionList action
 	| action
 ;
 

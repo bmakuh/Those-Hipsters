@@ -53,12 +53,12 @@
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union 
 /* Line 1685 of yacc.c  */
-#line 1 "zork0.y"
+#line 1 "./zork0.y"
 yylval
 {
 
 /* Line 1685 of yacc.c  */
-#line 1 "zork0.y"
+#line 1 "./zork0.y"
 
 	float fval;
 	int ival;

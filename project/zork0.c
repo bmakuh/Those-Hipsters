@@ -1,5 +1,5 @@
 
-#line 3 "zork0.c"
+#line 3 "./zork0.c"
 
 #define  YY_INT_ALIGNED short int
 
