@@ -69,11 +69,6 @@ void quit()
 	exit(0);
 }
 
-<<<<<<< HEAD
-void initGame()
-{
-	printf("you're playing the game!\n");
-=======
 void initGame() {
 	strcpy(rooms[0].hazardName, "none");
 	strcpy(rooms[0].objectName, "none");
@@ -106,5 +101,4 @@ struct aRoom {
 	char objectName[50];
 	char hazardName[50];
 	char roomName[50];
->>>>>>> 3b22ff855675ed945857ba7dc0b6d1e887c7babe
 }
