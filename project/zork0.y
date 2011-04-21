@@ -69,7 +69,17 @@ void quit()
 	exit(0);
 }
 
+struct aRoom {
+	int hasObject;
+	int hasOvercomeHazard;
+	char objectName[50];
+	char hazardName[50];
+	char roomName[50];
+};
+
 void initGame() {
+	printf("Welcome to the land of Zork!\n");
+
 	strcpy(rooms[0].hazardName, "none");
 	strcpy(rooms[0].objectName, "none");
 	strcpy(rooms[0].roomName, "The Stargate");
@@ -93,12 +103,6 @@ void initGame() {
 	strcpy(rooms[5].hazardName, "Voldemort");
 	strcpy(rooms[5].objectName, "none");
 	strcpy(rooms[5].roomName, "The Shire");
-}
-
-struct aRoom {
-	int hasObject;
-	int hasOvercomeHazard;
-	char objectName[50];
-	char hazardName[50];
-	char roomName[50];
+	
+	return;
 }
