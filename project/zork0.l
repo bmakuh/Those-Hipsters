@@ -8,6 +8,8 @@
 
 [\t ]+		/* ignore white space */ ;
 
+start { yylval.sval = strdup(yytext); return START; }
+
 go |
 move |
 walk |

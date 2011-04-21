@@ -3,6 +3,7 @@
 	int ival;
 	char *sval;
 }
+%token <sval>START
 %token <sval>MOTION
 %token <sval>DIRECTION
 %token <sval>AGGRESSION
@@ -21,14 +22,18 @@
 %type  <sval>someAction
 %{
 void quit();
+void initGame();
 %}
 
 %%
-game: actionList
+game: startGame actionList { printf("enter a command: "); }
 	| EXIT { quit(); }
 ;
 
-actionList: actionList '\n' action
+startGame: START { initGame(); }
+;
+
+actionList: actionList action
 	| action
 ;
 
@@ -59,4 +64,9 @@ void quit()
 {
 	printf("Thanks for playing Zork!\n"); 
 	exit(0);
+}
+
+void initGame()
+{
+	printf("you're playing the game!\n");
 }
