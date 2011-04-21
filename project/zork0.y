@@ -20,6 +20,8 @@
 void quit();
 void initGame();
 struct aRoom;
+int room;
+struct aRoom rooms[6];
 %}
 
 %%
@@ -51,6 +53,36 @@ void quit()
 	exit(0);
 }
 
-struct aRoom {
+void initGame() {
+	strcpy(rooms[0].hazardName, "none");
+	strcpy(rooms[0].objectName, "none");
+	strcpy(rooms[0].roomName, "The Stargate");
+	
+	strcpy(rooms[1].hazardName, "The Bush Administration");
+	strcpy(rooms[1].objectName, "none");
+	strcpy(rooms[1].roomName, "Guantanamo Bay");
+	
+	strcpy(rooms[2].hazardName, "none");
+	strcpy(rooms[2].objectName, "Delectable morsel");
+	strcpy(rooms[2].roomName, "Room of Awesome Woodland Creatures");
+	
+	strcpy(rooms[3].hazardName, "none");
+	strcpy(rooms[3].objectName, "none");
+	strcpy(rooms[3].roomName, "A Really Confusing Room");
+	
+	strcpy(rooms[4].hazardName, "none");
+	strcpy(rooms[4].objectName, "Unicorndog");
+	strcpy(rooms[4].roomName, "Unicorndog Stables");
+	
+	strcpy(rooms[5].hazardName, "Voldemort");
+	strcpy(rooms[5].objectName, "none");
+	strcpy(rooms[5].roomName, "The Shire");
+}
 
+struct aRoom {
+	int hasObject;
+	int hasOvercomeHazard;
+	char objectName[50];
+	char hazardName[50];
+	char roomName[50];
 }
