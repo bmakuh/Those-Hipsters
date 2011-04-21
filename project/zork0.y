@@ -3,6 +3,7 @@
 	int ival;
 	char *sval;
 }
+%token <sval>START
 %token <sval>MOTION
 %token <sval>DIRECTION
 %token <sval>AGGRESSION
@@ -28,11 +29,14 @@ struct aRoom rooms[7];
 %}
 
 %%
-game: actionList
+game: startGame actionList { printf("enter a command: "); }
 	| EXIT { quit(); }
 ;
 
-actionList: actionList '\n' action
+startGame: START { initGame(); }
+;
+
+actionList: actionList action
 	| action
 ;
 
@@ -74,6 +78,8 @@ struct aRoom {
 };
 
 void initGame() {
+	printf("Welcome to the land of Zork!\n");
+
 	strcpy(rooms[0].hazardName, "none");
 	strcpy(rooms[0].objectName, "none");
 	strcpy(rooms[0].roomName, "The Stargate");
@@ -97,4 +103,6 @@ void initGame() {
 	strcpy(rooms[5].hazardName, "Voldemort");
 	strcpy(rooms[5].objectName, "none");
 	strcpy(rooms[5].roomName, "The Shire");
+
+	return;
 }
