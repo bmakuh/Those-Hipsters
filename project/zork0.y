@@ -21,7 +21,7 @@ void quit();
 %}
 
 %%
-game: actionList EXIT { quit(); }
+game: actionList
 	| EXIT { quit(); }
 ;
 
