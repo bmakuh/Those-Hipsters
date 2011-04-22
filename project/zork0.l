@@ -59,7 +59,6 @@ nw { yylval.sval = strdup(yytext); return DIRECTION; }
 [0-9a-zA-Z]+ {yylval.sval = strdup(yytext); return UNKNOWN; }
 
 .		  return yytext[0];
-\n        return 0;
 
 %%
 /*---------------------------------------------------------------------------*/
