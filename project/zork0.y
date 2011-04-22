@@ -29,15 +29,13 @@ struct aRoom rooms[6];
 %}
 
 %%
-game: startGame actionList { printf("enter a command: "); }
-	| EXIT { quit(); }
+game: startGame actionList EXIT { quit(); }
 ;
 
-startGame: START { initGame(); }
+startGame: START { initGame(); printf("enter a command: "); }
 ;
 
-actionList: actionList action
-	| action
+actionList: actionList action { printf("enter a command: "); }
 ;
 
 action: moveType {$$ = $1;}

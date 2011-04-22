@@ -6,7 +6,7 @@
 %}
 %%
 
-[\t ]+		/* ignore white space */ ;
+[\t\n ]+		/* ignore white space */ ;
 
 start { yylval.sval = strdup(yytext); return START; }
 
