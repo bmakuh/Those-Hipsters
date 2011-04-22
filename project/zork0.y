@@ -24,8 +24,12 @@
 void quit();
 struct aRoom;
 void initGame();
+void moveDirection(char[20] direction);
+void attack(char[20] how);
+void consume(char[20] how);
 int room;
-struct aRoom rooms[7];
+int numRooms = 6;
+struct aRoom rooms[6];
 %}
 
 %%
@@ -75,6 +79,22 @@ struct aRoom {
 	char roomName[50];
 };
 
+void moveDirection(char[20] direction) {
+	if ( room < numRooms ) {
+		room++;
+	} else {
+		room--;
+	}
+}
+
+void attack(char[20] how) {
+
+}
+
+void consume(char[20] how) {
+	
+}
+
 void initGame() {
 	printf("Welcome to the land of Zork!\n");
 
@@ -101,6 +121,8 @@ void initGame() {
 	strcpy(rooms[5].hazardName, "Voldemort");
 	strcpy(rooms[5].objectName, "none");
 	strcpy(rooms[5].roomName, "The Shire");
+
+	room = 0;
 
 	return;
 }
