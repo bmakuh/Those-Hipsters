@@ -46,15 +46,7 @@ e |
 S |
 s |
 W |
-w |
-NE |
-ne |
-SE |
-se |
-SW |
-sw |
-NW |
-nw { yylval.sval = strdup(yytext); return DIRECTION; }
+w { yylval.sval = strdup(yytext); return DIRECTION; }
 
 [0-9a-zA-Z_]+ {yylval.sval = strdup(yytext); return UNKNOWN; }
 
