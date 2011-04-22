@@ -40,7 +40,7 @@ startGame: START { initGame(); printf("enter a command: "); }
 ;
 
 actionList: actionList action { printf("enter a command: "); }
-	| action
+	| action { printf("enter a command: "); }
 ;
 
 action: moveType {$$ = $1;}
