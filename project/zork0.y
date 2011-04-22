@@ -24,9 +24,9 @@
 void quit();
 struct aRoom;
 void initGame();
-void moveDirection(char[20] direction);
-void attack(char[20] how);
-void consume(char[20] how);
+void moveDirection(char direction);
+void attack(char how);
+void consume(char how);
 int room;
 int numRooms = 6;
 struct aRoom rooms[6];
@@ -80,7 +80,7 @@ struct aRoom {
 	char roomName[50];
 };
 
-void moveDirection(char[20] direction) {
+void moveDirection(char direction) {
 	if ( room < numRooms ) {
 		room++;
 	} else {
@@ -88,11 +88,11 @@ void moveDirection(char[20] direction) {
 	}
 }
 
-void attack(char[20] how) {
+void attack(char how) {
 
 }
 
-void consume(char[20] how) {
+void consume(char how) {
 	
 }
 
