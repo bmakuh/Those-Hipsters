@@ -4,6 +4,7 @@
 	char *sval;
 }
 %token <sval>START
+%token <sval>LOOK
 %token <sval>MOTION
 %token <sval>DIRECTION
 %token <sval>AGGRESSION
@@ -18,6 +19,7 @@
 %type  <sval>moveType
 %type  <sval>fightType
 %type  <sval>eatType
+%type  <sval>lookType
 %type  <sval>anError
 %type  <sval>someAction
 %{
@@ -27,6 +29,7 @@ void initGame();
 void moveDirection(char direction);
 void attack(char how);
 void consume(char how);
+void look();
 int room;
 int numRooms = 6;
 struct aRoom rooms[6];
@@ -46,6 +49,7 @@ actionList: actionList action { printf("enter a command: "); }
 action: moveType {$$ = $1;}
 	| fightType {$$ = $1;}
 	| eatType {$$ = $1;}
+	| lookType {$$ = $1;}
 	| anError {$$ = $1;}
 ;
 
@@ -58,12 +62,16 @@ fightType: AGGRESSION HAZARD { attack($1); }
 eatType: CONSUMPTION FOOD { consume($1); }
 ;
 
+lookType: LOOK { look(); $$ = $1; }
+;
+
 anError: someAction UNKNOWN {printf("Don't know how to %s %s\n", $1, $2); }
 ;
 
 someAction: MOTION {$$ = $1;}
 	| AGGRESSION {$$ = $1;}
 	| CONSUMPTION {$$ = $1;}
+	| LOOK {$$ = $1;}
 ;
 %%
 void quit()
@@ -84,6 +92,11 @@ struct aRoom {
 	int  n;
 	int  s;
 };
+
+void look() {
+	printf("Welcome to %s\nHazards: %s\nObjects: %s\nExits: %s\n", rooms[room].roomName, rooms[room].hazardName, rooms[room].objectName, rooms[room].exits);
+	return;
+}
 
 void moveDirection(char direction) {
 	switch(tolower(direction)) {

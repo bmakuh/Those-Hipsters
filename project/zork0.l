@@ -10,6 +10,9 @@
 
 start { yylval.sval = strdup(yytext); return START; }
 
+look |
+l { yylval.sval = strdup(yytext); return LOOK; }
+
 go |
 move |
 walk |
