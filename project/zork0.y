@@ -27,8 +27,8 @@ void quit();
 struct aRoom;
 void initGame();
 void moveDirection(char direction);
-void attack(char how);
-void consume(char how);
+void attack(char* how);
+void consume(char* how);
 void look();
 int room;
 int numRooms = 6;
@@ -53,7 +53,7 @@ action: moveType {$$ = $1;}
 	| anError {$$ = $1;}
 ;
 
-moveType: MOTION DIRECTION { moveDirection($2); }
+moveType: MOTION DIRECTION { moveDirection(*$2); }
 ;
 
 fightType: AGGRESSION HAZARD { attack($1); }
@@ -71,7 +71,6 @@ anError: someAction UNKNOWN {printf("Don't know how to %s %s\n", $1, $2); }
 someAction: MOTION {$$ = $1;}
 	| AGGRESSION {$$ = $1;}
 	| CONSUMPTION {$$ = $1;}
-	| LOOK {$$ = $1;}
 ;
 %%
 void quit()
@@ -95,7 +94,6 @@ struct aRoom {
 
 void look() {
 	printf("Welcome to %s\nHazards: %s\nObjects: %s\nExits: %s\n", rooms[room].roomName, rooms[room].hazardName, rooms[room].objectName, rooms[room].exits);
-	return;
 }
 
 void moveDirection(char direction) {
@@ -130,12 +128,12 @@ void moveDirection(char direction) {
 	printf("Welcome to %s\nHazards: %s\nObjects: %s\nExits: %s\n", rooms[room].roomName, rooms[room].hazardName, rooms[room].objectName, rooms[room].exits);
 }
 
-void attack(char how) {
+void attack(char* how) {
 	printf("You %s the %s to death!\n", how, rooms[room].hazardName);
 	strcpy(rooms[room].hazardName, "none");
 }
 
-void consume(char how) {
+void consume(char* how) {
 	printf("You are %sing a %s.\n", how, rooms[room].objectName);
 	strcpy(rooms[room].objectName, "none");
 }
