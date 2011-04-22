@@ -49,13 +49,13 @@ action: moveType {$$ = $1;}
 	| anError {$$ = $1;}
 ;
 
-moveType: MOTION DIRECTION {/*printf("you %s %s\n", $1, $2);*/ moveDirection(*$2); }
+moveType: MOTION DIRECTION { moveDirection($2); }
 ;
 
-fightType: AGGRESSION HAZARD {printf("you %s %s to death!\n", $1, $2); }
+fightType: AGGRESSION HAZARD { attack($1); }
 ;
 
-eatType: CONSUMPTION FOOD {printf("you are %sing a %s\n", $1, $2); }
+eatType: CONSUMPTION FOOD { consume($1); }
 ;
 
 anError: someAction UNKNOWN {printf("Don't know how to %s %s\n", $1, $2); }
@@ -118,11 +118,13 @@ void moveDirection(char direction) {
 }
 
 void attack(char how) {
-
+	printf("You %s the %s to death!\n", how, rooms[room].hazardName);
+	strcpy(rooms[room].hazardName, "none");
 }
 
 void consume(char how) {
-	
+	printf("You are %sing a %s.\n", how, rooms[room].objectName);
+	strcpy(rooms[room].objectName, "none");
 }
 
 void initGame() {
