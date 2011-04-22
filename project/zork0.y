@@ -22,10 +22,10 @@
 %type  <sval>someAction
 %{
 void quit();
-void initGame();
 struct aRoom;
+void initGame();
 int room;
-struct aRoom rooms[6];
+struct aRoom rooms[7];
 %}
 
 %%
@@ -101,6 +101,6 @@ void initGame() {
 	strcpy(rooms[5].hazardName, "Voldemort");
 	strcpy(rooms[5].objectName, "none");
 	strcpy(rooms[5].roomName, "The Shire");
-	
+
 	return;
 }
